@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Please input all  fields</p>
+
+Name <input id="name"><br><br>
+Email Address <input id="email"><br><br>
+Telephone Number <input id="phoneno"><br><br>
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="result"></p>
+
+<script>
+function myFunction() {
+    var vname, text;
+    var vemail, text;
+    var vphoneno, text;
+    var vresults, text;
+
+    vname = document.getElementById("name").value;
+    vemail = document.getElementById("email").value;
+    vphoneno = document.getElementById("phoneno").value;
+
+
+    if (!vname) {
+        addtotext( "Please Enter the Name");
+    }
+    if (!vemail) {
+        addtotext( "Please Enter the Email Address");
+    }
+    if (!vphoneno) {
+        addtotext( "Please Enter the Phone Number");
+    }
+
+    if (!testemail(vemail)) {
+        addtotext( "Please Enter Valid Email");
+    }
+
+    if (!vresults) {vresults="Valid Input";}
+
+    document.getElementById("result").innerHTML = vresults;
+
+
+    function addtotext(ttext){
+    	if (vresults){
+    		vresults=vresults + "<br>" + ttext;
+    	}
+    	else {
+    		vresults=ttext;
+    	}
+    }
+}
+
+var testemail=function (email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+};
+
+</script>
+
+</body>
+</html>
